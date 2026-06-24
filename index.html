@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Elena A. Miranda Foundation — Changing children's lives</title>
+<meta name="description" content="The Elena A. Miranda Foundation helps children whose families can't afford life-saving medical care. 100% of every donation goes directly to a child's care." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --peri:#a5b5eb;            /* brand lead */
+    --peri-deep:#6172c6;       /* buttons, links */
+    --peri-wash:#eef1fc;       /* soft section bg */
+    --mint:#def1d0;            /* secondary */
+    --mint-deep:#9fd383;
+    --mint-wash:#f2fbeb;
+    --ink:#3a4570;             /* headings / deep text */
+    --text:#667199;            /* body text */
+    --bg:#ffffff;
+    --shadow:0 24px 60px -28px rgba(97,114,198,.45);
+    --shadow-sm:0 14px 30px -18px rgba(97,114,198,.5);
+    --head:"Fredoka", "Nunito", sans-serif;
+    --body:"Nunito", "Helvetica Neue", Arial, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  h1,h2,h3,h4{font-family:var(--head);color:var(--ink);line-height:1.12;font-weight:600}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  section{position:relative}
+
+  /* Pills / buttons */
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--head);font-weight:600;font-size:1rem;padding:15px 30px;border-radius:50px;cursor:pointer;border:none;transition:transform .25s ease,box-shadow .25s ease,background .25s ease;white-space:nowrap}
+  .btn-primary{background:var(--peri-deep);color:#fff;box-shadow:0 12px 24px -10px rgba(97,114,198,.7)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 30px -10px rgba(97,114,198,.8)}
+  .btn-mint{background:var(--mint);color:#2f6b2f}
+  .btn-mint:hover{transform:translateY(-3px);box-shadow:0 14px 26px -12px rgba(120,190,90,.7)}
+  .btn-ghost{background:#fff;color:var(--peri-deep);box-shadow:inset 0 0 0 2px var(--peri)}
+  .btn-ghost:hover{transform:translateY(-3px);background:var(--peri-wash)}
+
+  .eyebrow{font-family:var(--head);font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:var(--peri-deep);display:inline-flex;align-items:center;gap:8px;margin-bottom:14px}
+  .eyebrow .dot{width:9px;height:9px;border-radius:50%;background:var(--mint-deep)}
+
+  /* ---------- Header ---------- */
+  header{position:sticky;top:0;z-index:100;padding:16px 0;transition:padding .3s ease,background .3s ease,box-shadow .3s ease}
+  header.scrolled{background:rgba(255,255,255,.9);backdrop-filter:blur(12px);box-shadow:0 8px 30px -20px rgba(97,114,198,.6);padding:10px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo .mark{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--peri),var(--peri-deep));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px -8px rgba(97,114,198,.8);flex:none}
+  .logo .name{font-family:var(--head);font-weight:600;color:var(--ink);line-height:1.05;font-size:1.02rem}
+  .logo .name small{display:block;font-weight:500;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--peri-deep)}
+  .nav-links{display:flex;align-items:center;gap:8px}
+  .nav-links a{font-family:var(--head);font-weight:500;color:var(--ink);padding:9px 16px;border-radius:50px;transition:background .25s ease,color .25s ease}
+  .nav-links a:hover{background:var(--peri-wash);color:var(--peri-deep)}
+  .nav-links a.cta{background:var(--peri-deep);color:#fff}
+  .nav-links a.cta:hover{background:var(--ink)}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+  .burger span{width:26px;height:3px;border-radius:3px;background:var(--ink);transition:.3s}
+
+  /* ---------- Hero ---------- */
+  .hero{background:linear-gradient(180deg,var(--peri-wash),#fff);padding:60px 0 90px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+  .hero h1{font-size:clamp(2.5rem,5.4vw,4rem);font-weight:700;margin-bottom:20px}
+  .hero h1 .hl{color:var(--peri-deep);position:relative;white-space:nowrap}
+  .hero h1 .hl svg{position:absolute;left:0;bottom:-10px;width:100%}
+  .hero p{font-size:1.16rem;max-width:480px;margin-bottom:32px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-badges{display:flex;gap:22px;margin-top:34px;flex-wrap:wrap}
+  .hero-badges .hb{display:flex;align-items:center;gap:10px;font-family:var(--head);font-weight:600;color:var(--ink)}
+  .hero-badges .hb i{width:38px;height:38px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:var(--mint);flex:none}
+  .hero-art{position:relative}
+  .hero-photo{border-radius:40px 40px 40px 90px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/4.3;background:var(--peri)}
+  .hero-photo img{width:100%;height:100%;object-fit:cover}
+  .float-card{position:absolute;background:#fff;border-radius:22px;padding:16px 20px;box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:12px;font-family:var(--head);font-weight:600;color:var(--ink)}
+  .float-card .circle{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+  .fc-1{top:24px;left:-26px;animation:bob 4s ease-in-out infinite}
+  .fc-2{bottom:34px;right:-22px;animation:bob 5s ease-in-out infinite .6s}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  .blob{position:absolute;border-radius:50%;filter:blur(6px);opacity:.55;z-index:0}
+  .blob.b1{width:240px;height:240px;background:var(--mint);top:-60px;right:-60px}
+  .blob.b2{width:180px;height:180px;background:var(--peri);bottom:-50px;left:-40px;opacity:.45}
+
+  /* wave */
+  .wave{display:block;width:100%;height:auto;margin-top:-1px}
+
+  /* ---------- Mission ---------- */
+  .mission{text-align:center;padding:90px 0 80px}
+  .mission .wrap{max-width:820px}
+  .mission h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:22px}
+  .mission p{font-size:1.18rem}
+  .mission .pledge-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:34px}
+  .chip{background:var(--mint-wash);color:#3f7a3a;font-family:var(--head);font-weight:600;padding:11px 22px;border-radius:50px;display:inline-flex;align-items:center;gap:9px}
+  .chip.peri{background:var(--peri-wash);color:var(--peri-deep)}
+
+  /* ---------- How we help ---------- */
+  .help{background:var(--peri-wash);padding:90px 0}
+  .help .head{text-align:center;max-width:640px;margin:0 auto 56px}
+  .help h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:14px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .card{background:#fff;border-radius:28px;padding:36px 30px;box-shadow:var(--shadow-sm);transition:transform .3s ease,box-shadow .3s ease;text-align:center}
+  .card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+  .card .ico{width:70px;height:70px;border-radius:22px;margin:0 auto 22px;display:flex;align-items:center;justify-content:center}
+  .card h3{font-size:1.3rem;margin-bottom:12px}
+  .card p{font-size:.98rem}
+
+  /* ---------- Impact ---------- */
+  .impact{padding:90px 0}
+  .impact-band{background:linear-gradient(135deg,var(--peri),#b9c6f0);border-radius:40px;padding:56px 40px;box-shadow:var(--shadow);text-align:center;position:relative;overflow:hidden}
+  .impact-band h2{color:#fff;font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:8px}
+  .impact-band .sub{color:#fff;opacity:.92;margin-bottom:42px}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .stat{background:rgba(255,255,255,.92);border-radius:26px;padding:28px 18px}
+  .stat .n{font-family:var(--head);font-weight:700;font-size:clamp(2.2rem,4.5vw,3.2rem);color:var(--peri-deep);line-height:1}
+  .stat .l{font-family:var(--head);font-weight:500;color:var(--ink);margin-top:8px;font-size:.95rem}
+
+  /* ---------- Founder ---------- */
+  .founder{padding:30px 0 90px}
+  .founder-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:center}
+  .founder-photo{border-radius:34px 90px 34px 34px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:1/1;background:var(--mint)}
+  .founder-photo img{width:100%;height:100%;object-fit:cover}
+  .founder h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:18px}
+  .founder p{margin-bottom:16px}
+  .founder .sign{font-family:var(--head);font-weight:600;color:var(--peri-deep);margin-top:6px}
+
+  /* ---------- News ---------- */
+  .news{background:var(--mint-wash);padding:90px 0}
+  .news .head{text-align:center;max-width:640px;margin:0 auto 50px}
+  .news h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:12px}
+  .news-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+  .post{background:#fff;border-radius:28px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .3s ease,box-shadow .3s ease;display:flex;flex-direction:column}
+  .post:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .post .ph{height:220px;overflow:hidden}
+  .post .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .post:hover .ph img{transform:scale(1.06)}
+  .post .pb{padding:26px 28px 30px}
+  .post .tag{display:inline-block;background:var(--peri-wash);color:var(--peri-deep);font-family:var(--head);font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;padding:5px 13px;border-radius:50px;margin-bottom:14px}
+  .post h3{font-size:1.22rem;margin-bottom:10px;line-height:1.25}
+  .post p{font-size:.95rem;margin-bottom:16px}
+  .post .more{font-family:var(--head);font-weight:600;color:var(--peri-deep)}
+
+  /* ---------- Donate CTA ---------- */
+  .cta{padding:90px 0}
+  .cta-band{background:linear-gradient(135deg,#fbfdf8,var(--mint-wash));border:2px dashed var(--mint-deep);border-radius:40px;padding:60px 40px;text-align:center;position:relative;overflow:hidden}
+  .cta-band h2{font-size:clamp(2rem,4.2vw,3rem);margin-bottom:14px}
+  .cta-band p{font-size:1.14rem;max-width:520px;margin:0 auto 30px}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink);color:rgba(255,255,255,.78);padding:80px 0 0}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px}
+  footer .logo .name,footer .logo .name small{color:#fff}
+  footer p{font-size:.95rem;max-width:300px;margin-top:18px}
+  footer h4{color:#fff;font-size:1.15rem;margin-bottom:18px}
+  footer ul{list-style:none}
+  footer li{margin-bottom:12px;font-size:.95rem;display:flex;gap:10px;align-items:flex-start}
+  footer li .mi{color:var(--peri)}
+  footer a:hover{color:var(--peri)}
+  .foot-bottom{margin-top:64px;border-top:1px solid rgba(255,255,255,.12);padding:24px 0;text-align:center;font-size:.82rem;color:rgba(255,255,255,.55)}
+  .foot-bottom a{color:var(--peri)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+  body.no-js .reveal{opacity:1;transform:none}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:880px){
+    .hero-grid,.founder-grid{grid-template-columns:1fr;gap:40px}
+    .hero-art{order:-1;max-width:420px;margin:0 auto}
+    .cards,.news-grid,.stat-row,.foot-grid{grid-template-columns:1fr}
+    .stat-row{gap:16px}
+    .nav-links{position:fixed;inset:0 0 0 auto;width:80%;max-width:320px;background:#fff;flex-direction:column;justify-content:center;gap:14px;transform:translateX(100%);transition:transform .4s ease;box-shadow:-20px 0 50px -20px rgba(97,114,198,.5);padding:40px}
+    .nav-links.open{transform:none}
+    .nav-links a{font-size:1.1rem}
+    .burger{display:flex;z-index:101}
+    .burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+    .burger.open span:nth-child(2){opacity:0}
+    .burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  }
+</style>
+</head>
+<body class="no-js">
+
+<!-- ===== HEADER ===== -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="Elena A. Miranda Foundation">
+      <span class="mark" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7.5-4.6-9.7-9.2C.7 8.2 2.4 5 5.7 5c2 0 3.3 1.2 4 2.3C10.4 6.2 11.7 5 13.7 5 17 5 18.7 8.2 17 11.8 14.8 16.4 12 21 12 21z" fill="#fff"/></svg>
+      </span>
+      <span class="name">Elena A. Miranda<small>Foundation</small></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="menu">
+      <a href="#mission">About</a>
+      <a href="#help">How We Help</a>
+      <a href="#news">News</a>
+      <a href="#donate" class="cta">💛 Donate</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <span class="blob b1"></span>
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="eyebrow"><span class="dot"></span> A children's medical foundation</span>
+      <h1>Join our quest to change a <span class="hl">child's life
+        <svg viewBox="0 0 220 14" fill="none" preserveAspectRatio="none"><path d="M2 11C60 3 160 3 218 9" stroke="#a5b5eb" stroke-width="5" stroke-linecap="round"/></svg>
+      </span></h1>
+      <p>We help children whose families can't afford life-saving medical care — and we promise that <strong>100% of every donation</strong> goes straight to a child's treatment.</p>
+      <div class="hero-actions">
+        <a href="#donate" class="btn btn-primary">Donate Today →</a>
+        <a href="#mission" class="btn btn-ghost">Learn More</a>
+      </div>
+      <div class="hero-badges">
+        <div class="hb"><i>💗</i> 100% to care</div>
+        <div class="hb"><i>🏥</i> Nicklaus Children's</div>
+        <div class="hb"><i>🤝</i> Zero admin fees</div>
+      </div>
+    </div>
+    <div class="hero-art reveal">
+      <div class="hero-photo">
+        <img src="https://elenafoundation.com/wp-content/uploads/2025/10/DSC_4701-scaled-e1760575178458.jpg" alt="A child supported by the foundation" loading="eager" />
+      </div>
+      <div class="float-card fc-1"><span class="circle" style="background:var(--mint)">⭐</span> Every child matters</div>
+      <div class="float-card fc-2"><span class="circle" style="background:var(--peri-wash)">💛</span> $500K pledged</div>
+    </div>
+  </div>
+</section>
+<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 40C240 0 480 0 720 24 960 48 1200 80 1440 48V80H0V40Z" fill="#ffffff"/></svg>
+
+<!-- ===== MISSION ===== -->
+<section class="mission reveal" id="mission">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center"><span class="dot"></span> One Mission</span>
+    <h2>Turning compassion into action — one child at a time.</h2>
+    <p>The Elena A. Miranda Foundation, founded by Carlos Fausto Miranda, helps children whose families can't afford life-saving medical care. Recently, the Foundation pledged <strong>$500,000</strong> to Nicklaus Children's Hospital, which named a new wing of its lobby the "Elena A. Miranda Marketplace" in its honor. With full transparency and zero admin fees, we have one goal: to give every child a fighting chance.</p>
+    <div class="pledge-row">
+      <span class="chip">💚 100% to patient care</span>
+      <span class="chip peri">💙 Radical transparency</span>
+      <span class="chip">⭐ Tax-deductible</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW WE HELP ===== -->
+<section class="help reveal" id="help">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow" style="justify-content:center"><span class="dot"></span> How We Help</span>
+      <h2>Care for the children who need it most</h2>
+      <p>We step in when a life-saving treatment exists, but a family simply can't reach it — and no public funds remain.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="ico" style="background:var(--peri-wash)">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.3-9-8.2C1.4 8.3 3 5.5 6 5.5c1.8 0 3 1.1 3.6 2.1.6-1 1.8-2.1 3.6-2.1 0 0 .2 0 .3 0" stroke="#6172c6" stroke-width="1.8" stroke-linecap="round"/><path d="M16 9h4M18 7v4" stroke="#6172c6" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Life-Saving Care</h3>
+        <p>We fund critical medical interventions for children with life-ending conditions when no other help is available.</p>
+      </div>
+      <div class="card">
+        <div class="ico" style="background:var(--mint-wash)">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M5 13c1.5-1.5 4-1.5 5.5 0l1.5 1.5M3 11l4-4c1-1 2.6-1 3.6 0l3.4 3.4c.8.8.8 2 0 2.8-.8.8-2 .8-2.8 0L13 12" stroke="#3f7a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="7" r="3" stroke="#3f7a3a" stroke-width="1.7"/></svg>
+        </div>
+        <h3>Families First</h3>
+        <p>We support children with disabilities and challenges, and the families committed to caring for them.</p>
+      </div>
+      <div class="card">
+        <div class="ico" style="background:var(--peri-wash)">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 16.5 7.1 18.2l.9-5.5-4-3.9L9.5 8 12 3z" stroke="#6172c6" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>100% Transparent</h3>
+        <p>Every dollar is accounted for. Admin costs are covered separately, so all donations reach a child's care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IMPACT ===== -->
+<section class="impact reveal">
+  <div class="wrap">
+    <div class="impact-band">
+      <span class="blob b2" style="opacity:.3"></span>
+      <h2>Our impact so far</h2>
+      <p class="sub">Real change for real children at Nicklaus Children's Hospital.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="n">100%</div><div class="l">Of donations to patient care</div></div>
+        <div class="stat"><div class="n">$500K</div><div class="l">Pledged to Nicklaus Children's</div></div>
+        <div class="stat"><div class="n">$0</div><div class="l">Administrative fees</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOUNDER ===== -->
+<section class="founder reveal">
+  <div class="wrap founder-grid">
+    <div class="founder-photo">
+      <img src="https://elenafoundation.com/wp-content/uploads/2025/10/carlos-faustomiranda-agent-profile-photo.webp" alt="Carlos Fausto Miranda, Founder" loading="lazy" />
+    </div>
+    <div>
+      <span class="eyebrow"><span class="dot"></span> A message from our founder</span>
+      <h2>In honor of Elena.</h2>
+      <p>The Foundation was created as a labor of love, inspired by and honoring the late Elena Andreina Miranda-Serafin. It exists for the children society leaves behind — and for the families who need help the most.</p>
+      <p>“No child deserves to suffer, and no family deserves to live their child's suffering. Our purpose is simple: to help those incapable of helping themselves.”</p>
+      <div class="sign">— Carlos Fausto Miranda, Founder</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWS ===== -->
+<section class="news reveal" id="news">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow" style="justify-content:center"><span class="dot"></span> News &amp; Events</span>
+      <h2>What's happening</h2>
+      <p>Drives, events, and milestones from our community.</p>
+    </div>
+    <div class="news-grid">
+      <article class="post">
+        <div class="ph"><img src="https://elenafoundation.com/wp-content/uploads/2025/11/Toy-Drive-Flyer-1_page-0001.jpg" alt="Toy Drive" loading="lazy" /></div>
+        <div class="pb">
+          <span class="tag">Event</span>
+          <h3>Nicklaus Children's Hospital Toy Drive</h3>
+          <p>Join us in spreading holiday cheer by donating new, unwrapped toys for children of all ages.</p>
+          <span class="more">Read more →</span>
+        </div>
+      </article>
+      <article class="post">
+        <div class="ph"><img src="https://elenafoundation.com/wp-content/uploads/2025/11/Scoth-and-Cigar-photo-1-1-1280x640-1.jpg" alt="Scotch and Cigars for a Cause" loading="lazy" /></div>
+        <div class="pb">
+          <span class="tag">News</span>
+          <h3>We raised $98,000 for Nicklaus Children's Hospital</h3>
+          <p>Our annual Scotch &amp; Cigars for a Cause brought the community together for the kids.</p>
+          <span class="more">Read more →</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DONATE CTA ===== -->
+<section class="cta reveal" id="donate">
+  <div class="wrap">
+    <div class="cta-band">
+      <span class="blob b1" style="opacity:.35;top:-40px;left:-40px;right:auto"></span>
+      <h2>Be the reason a child gets a second chance 💛</h2>
+      <p>100% of your gift goes directly to a child's care. Every bit of kindness counts.</p>
+      <a href="#" class="btn btn-primary" style="font-size:1.08rem;padding:17px 38px">Donate Today →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="logo">
+        <span class="mark" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7.5-4.6-9.7-9.2C.7 8.2 2.4 5 5.7 5c2 0 3.3 1.2 4 2.3C10.4 6.2 11.7 5 13.7 5 17 5 18.7 8.2 17 11.8 14.8 16.4 12 21 12 21z" fill="#fff"/></svg></span>
+        <span class="name">Elena A. Miranda<small>Foundation</small></span>
+      </div>
+      <p>A labor of love, inspired by and honoring the late Elena Andreina Miranda-Serafin.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><span class="mi">📍</span> 1761 W Flagler St, Miami, FL 33135</li>
+        <li><span class="mi">📞</span> <a href="tel:3054312258">305 – 431 – 2258</a></li>
+        <li><span class="mi">✉️</span> <a href="mailto:na@faustocommercial.com">Email Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#mission">About</a></li>
+        <li><a href="#help">How We Help</a></li>
+        <li><a href="#news">News &amp; Events</a></li>
+        <li><a href="#donate">Donate</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 Elena A. Miranda Foundation • Made with 💛 — demo by OPEN! Digital</div>
+</footer>
+
+<script>
+  document.body.classList.remove('no-js');
+  var header=document.getElementById('header');
+  var onScroll=function(){header.classList.toggle('scrolled',window.scrollY>30)};
+  window.addEventListener('scroll',onScroll);onScroll();
+
+  var burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',function(){menu.classList.toggle('open');burger.classList.toggle('open')});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');burger.classList.remove('open')})});
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')}); }
+</script>
+</body>
+</html>
