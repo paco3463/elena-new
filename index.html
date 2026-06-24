@@ -74,7 +74,7 @@
   .hero-badges .hb i{width:38px;height:38px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:var(--mint);flex:none}
   .hero-art{position:relative}
   .hero-photo{border-radius:40px 40px 40px 90px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/4.3;background:var(--peri)}
-  .hero-photo img{width:100%;height:100%;object-fit:cover}
+  .hero-photo img,.hero-photo video{width:100%;height:100%;object-fit:cover}
   .float-card{position:absolute;background:#fff;border-radius:22px;padding:16px 20px;box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:12px;font-family:var(--head);font-weight:600;color:var(--ink)}
   .float-card .circle{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
   .fc-1{top:24px;left:-26px;animation:bob 4s ease-in-out infinite}
@@ -95,6 +95,10 @@
   .mission .pledge-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:34px}
   .chip{background:var(--mint-wash);color:#3f7a3a;font-family:var(--head);font-weight:600;padding:11px 22px;border-radius:50px;display:inline-flex;align-items:center;gap:9px}
   .chip.peri{background:var(--peri-wash);color:var(--peri-deep)}
+  .mission-media{max-width:1040px;margin:54px auto 0;padding:0 24px}
+  .mission-bubble{border-radius:70px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:16/7;background:var(--peri)}
+  .mission-bubble img{width:100%;height:100%;object-fit:cover}
+  @media(max-width:700px){.mission-bubble{aspect-ratio:4/3;border-radius:44px}}
 
   /* ---------- How we help ---------- */
   .help{background:var(--peri-wash);padding:90px 0}
@@ -121,10 +125,22 @@
   .founder{padding:30px 0 90px}
   .founder-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:center}
   .founder-photo{border-radius:34px 90px 34px 34px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:1/1;background:var(--mint)}
-  .founder-photo img{width:100%;height:100%;object-fit:cover}
+  .founder-photo img,.founder-photo video{width:100%;height:100%;object-fit:cover;background:#000}
   .founder h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:18px}
   .founder p{margin-bottom:16px}
   .founder .sign{font-family:var(--head);font-weight:600;color:var(--peri-deep);margin-top:6px}
+
+  /* ---------- Instagram ---------- */
+  .insta{padding:90px 0}
+  .insta .head{text-align:center;max-width:640px;margin:0 auto 44px}
+  .insta h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:12px}
+  .ig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .ig-tile{position:relative;aspect-ratio:1/1;border-radius:26px;overflow:hidden;box-shadow:var(--shadow-sm);display:block}
+  .ig-tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .ig-tile:hover img{transform:scale(1.08)}
+  .ig-tile .ig-ov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.7rem;opacity:0;background:rgba(97,114,198,0);transition:opacity .35s ease,background .35s ease}
+  .ig-tile:hover .ig-ov{opacity:1;background:rgba(97,114,198,.35)}
+  @media(max-width:880px){.ig-grid{grid-template-columns:repeat(2,1fr)}}
 
   /* ---------- News ---------- */
   .news{background:var(--mint-wash);padding:90px 0}
@@ -225,7 +241,9 @@
     </div>
     <div class="hero-art reveal">
       <div class="hero-photo">
-        <img src="https://elenafoundation.com/wp-content/uploads/2025/10/DSC_4701-scaled-e1760575178458.jpg" alt="A child supported by the foundation" loading="eager" />
+        <video autoplay muted loop playsinline poster="https://elenafoundation.com/wp-content/uploads/2025/10/DSC_4701-scaled-e1760575178458.jpg">
+          <source src="https://elenafoundation.com/wp-content/uploads/2025/10/AdobeStock_116437186.mp4" type="video/mp4">
+        </video>
       </div>
       <div class="float-card fc-1"><span class="circle" style="background:var(--mint)">⭐</span> Every child matters</div>
       <div class="float-card fc-2"><span class="circle" style="background:var(--peri-wash)">💛</span> $500K pledged</div>
@@ -244,6 +262,11 @@
       <span class="chip">💚 100% to patient care</span>
       <span class="chip peri">💙 Radical transparency</span>
       <span class="chip">⭐ Tax-deductible</span>
+    </div>
+  </div>
+  <div class="mission-media">
+    <div class="mission-bubble">
+      <img src="https://elenafoundation.com/wp-content/uploads/2025/10/DSC_4701-scaled-e1760575178458.jpg" alt="Children the foundation supports" loading="lazy" />
     </div>
   </div>
 </section>
@@ -302,7 +325,9 @@
 <section class="founder reveal">
   <div class="wrap founder-grid">
     <div class="founder-photo">
-      <img src="https://elenafoundation.com/wp-content/uploads/2025/10/carlos-faustomiranda-agent-profile-photo.webp" alt="Carlos Fausto Miranda, Founder" loading="lazy" />
+      <video controls playsinline poster="https://elenafoundation.com/wp-content/uploads/2025/10/Screenshot-2025-10-10-at-12.36.40-PM.png">
+        <source src="https://elenafoundation.com/wp-content/uploads/2025/10/non-profit-miami-fausto-miranda-nicklaus.mp4" type="video/mp4">
+      </video>
     </div>
     <div>
       <span class="eyebrow"><span class="dot"></span> A message from our founder</span>
@@ -311,6 +336,24 @@
       <p>“No child deserves to suffer, and no family deserves to live their child's suffering. Our purpose is simple: to help those incapable of helping themselves.”</p>
       <div class="sign">— Carlos Fausto Miranda, Founder</div>
     </div>
+  </div>
+</section>
+
+<!-- ===== INSTAGRAM ===== -->
+<section class="insta reveal" id="insta">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow" style="justify-content:center"><span class="dot"></span> @ElenaAMirandaFoundation</span>
+      <h2>Follow along on Instagram</h2>
+      <p>Little moments of joy, big milestones, and the children who inspire it all.</p>
+    </div>
+    <div class="ig-grid">
+      <a class="ig-tile" href="https://www.instagram.com/p/DWo-3fxGOVa/" target="_blank" rel="noopener"><img src="https://elenafoundation.com/wp-content/uploads/2025/10/non_profit_fausto_commercial_hospital.webp" alt="Instagram post" loading="lazy"><span class="ig-ov">📷</span></a>
+      <a class="ig-tile" href="https://www.instagram.com/reel/DS5sH-2Dl54/" target="_blank" rel="noopener"><img src="https://elenafoundation.com/wp-content/uploads/2025/11/Scoth-and-Cigar-photo-1-1-1280x640-1.jpg" alt="Instagram reel" loading="lazy"><span class="ig-ov">🎥</span></a>
+      <a class="ig-tile" href="https://www.instagram.com/reel/DSSz94pAe0u/" target="_blank" rel="noopener"><img src="https://elenafoundation.com/wp-content/uploads/2025/11/Toy-Drive-Flyer-1_page-0001.jpg" alt="Instagram reel" loading="lazy"><span class="ig-ov">🎥</span></a>
+      <a class="ig-tile" href="https://www.instagram.com/p/DSSvHLgETb8/" target="_blank" rel="noopener"><img src="https://elenafoundation.com/wp-content/uploads/2025/10/family-happy-miami.jpg" alt="Instagram post" loading="lazy"><span class="ig-ov">📷</span></a>
+    </div>
+    <div style="text-align:center;margin-top:36px"><a class="btn btn-primary" href="https://www.instagram.com/" target="_blank" rel="noopener">Follow us 💛</a></div>
   </div>
 </section>
 
